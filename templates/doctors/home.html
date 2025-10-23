@@ -1,0 +1,31 @@
+{% extends 'doctors/base.html' %}
+
+{% block title %}Home - Health Hub{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 mb-4">Welcome to Health Hub</h1>
+        <p class="lead mb-4">
+            Your trusted platform for finding the best doctors in your area.
+            Search by specialization and location to connect with healthcare professionals.
+        </p>
+
+        <!-- Search Form -->
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title mb-3">Find Your Doctor</h5>
+                <form action="{% url 'doctors:doctors_list' %}" method="get" class="d-flex">
+                    <input type="text" name="q" class="form-control me-2" placeholder="Search by name, specialization, or location..." required>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{% url 'doctors:doctors_list' %}" class="btn btn-outline-primary btn-lg me-2">Browse All Doctors</a>
+            <a href="{% url 'doctors:about' %}" class="btn btn-outline-secondary btn-lg">Learn More</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
